@@ -6,6 +6,13 @@
       "name": "K-Dog"
     }
   ],
-  "weeks": [],
+  "weeks": [
+    {
+      "num": 1,
+      "games": [],
+      "finalized": false,
+      "locked": false
+    }
+  ],
   "picks": {}
 }
