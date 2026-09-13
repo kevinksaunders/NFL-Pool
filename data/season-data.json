@@ -1,6 +1,11 @@
 {
   "poolName": "The Ladder",
-  "players": [],
+  "players": [
+    {
+      "id": "wtwcwr4amu0cioc2",
+      "name": "K-Dog"
+    }
+  ],
   "weeks": [],
   "picks": {}
 }
