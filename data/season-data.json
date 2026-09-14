@@ -11,7 +11,7 @@
       "num": 1,
       "games": [
         {
-          "id": "r92xjwjemu0ciy5k",
+          "id": "2lwufykzmu0kkcgp",
           "away": "Patriots",
           "home": "Seahawks",
           "spread": 0,
@@ -21,7 +21,7 @@
           }
         },
         {
-          "id": "br9od4dsmu0ciy5k",
+          "id": "02uvbbbimu0kkcgq",
           "away": "49ers",
           "home": "Rams",
           "spread": 0,
@@ -31,104 +31,98 @@
           }
         },
         {
-          "id": "33yst1b1mu0ciy5k",
+          "id": "37rp9qy4mu0kkcgq",
           "away": "Buccaneers",
           "home": "Bengals",
           "spread": -3.5,
-          "result": {
-            "away": null,
-            "home": 31
-          }
+          "result": null
         },
         {
-          "id": "6b61lsiimu0ciy5k",
+          "id": "9vbcxlx0mu0kkcgq",
           "away": "Saints",
           "home": "Lions",
           "spread": -7,
-          "result": {
-            "away": 30,
-            "home": 31
-          }
+          "result": null
         },
         {
-          "id": "qbcrg8wdmu0ciy5k",
+          "id": "h9dehrv3mu0kkcgq",
           "away": "Jets",
           "home": "Titans",
           "spread": -1.5,
           "result": null
         },
         {
-          "id": "aa8sbv3dmu0ciy5k",
+          "id": "ijgfzaijmu0kkcgq",
           "away": "Ravens",
           "home": "Colts",
           "spread": 3.5,
           "result": null
         },
         {
-          "id": "xosh3p38mu0ciy5k",
+          "id": "zhbhmcx4mu0kkcgq",
           "away": "Falcons",
           "home": "Steelers",
           "spread": -6,
           "result": null
         },
         {
-          "id": "zfn8hvdrmu0ciy5k",
+          "id": "sln44wfamu0kkcgq",
           "away": "Bears",
           "home": "Panthers",
           "spread": 3,
           "result": null
         },
         {
-          "id": "gahzjh9dmu0ciy5k",
+          "id": "gaqo92l3mu0kkcgq",
           "away": "Browns",
           "home": "Jaguars",
           "spread": -8.5,
           "result": null
         },
         {
-          "id": "pzltsgcbmu0ciy5k",
+          "id": "akmpnl80mu0kkcgq",
           "away": "Bills",
           "home": "Texans",
           "spread": 1.5,
           "result": null
         },
         {
-          "id": "fya8rrwcmu0ciy5k",
+          "id": "tkhv3pxumu0kkcgq",
           "away": "Cardinals",
           "home": "Chargers",
           "spread": -9.5,
           "result": null
         },
         {
-          "id": "o5ndkljimu0ciy5k",
+          "id": "5yuxcrjfmu0kkcgq",
           "away": "Packers",
           "home": "Vikings",
           "spread": -1.5,
           "result": null
         },
         {
-          "id": "tv8fcoddmu0ciy5k",
+          "id": "u5p2r7zamu0kkcgq",
           "away": "Dolphins",
           "home": "Raiders",
           "spread": -3,
           "result": null
         },
         {
-          "id": "27xq2ewsmu0ciy5k",
+          "id": "5cak8c9amu0kkcgq",
           "away": "Commanders",
           "home": "Eagles",
           "spread": -5.5,
           "result": null
         },
         {
-          "id": "yzv609ccmu0ciy5k",
+          "id": "f2vdayn7mu0kkcgq",
           "away": "Cowboys",
           "home": "Giants",
           "spread": 3,
           "result": null
         },
         {
-          "id": "qgj024nemu0ciy5k",
+          "id": "a1zibsvsmu0kkcgq",
           "away": "Broncos",
           "home": "Chiefs",
           "spread": -2.5,
