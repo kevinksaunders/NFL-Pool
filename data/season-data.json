@@ -163,7 +163,10 @@
           "away": "Cowboys",
           "home": "Giants",
           "spread": 3,
-          "result": null
+          "result": {
+            "away": 20,
+            "home": null
+          }
         },
         {
           "id": "bucrqle3mu0lr8g2",
