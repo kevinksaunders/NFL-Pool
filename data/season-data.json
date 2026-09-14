@@ -35,7 +35,10 @@
           "away": "Buccaneers",
           "home": "Bengals",
           "spread": -3.5,
-          "result": null
+          "result": {
+            "away": null,
+            "home": 31
+          }
         },
         {
           "id": "6b61lsiimu0ciy5k",
