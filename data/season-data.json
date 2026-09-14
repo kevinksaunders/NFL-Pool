@@ -45,7 +45,10 @@
           "away": "Saints",
           "home": "Lions",
           "spread": -7,
-          "result": null
+          "result": {
+            "away": 30,
+            "home": null
+          }
         },
         {
           "id": "qbcrg8wdmu0ciy5k",
