@@ -184,7 +184,120 @@
     },
     {
       "num": 2,
-      "games": [],
+      "games": [
+        {
+          "id": "y3n3q4domu17pung",
+          "home": "Bills",
+          "away": "Lions",
+          "spread": -3.5,
+          "result": null
+        },
+        {
+          "id": "zx84dmjrmu17punh",
+          "home": "Falcons",
+          "away": "Panthers",
+          "spread": 1.5,
+          "result": null
+        },
+        {
+          "id": "td7k07ozmu17punh",
+          "home": "Bears",
+          "away": "Vikings",
+          "spread": -5.5,
+          "result": null
+        },
+        {
+          "id": "52jdcsprmu17punh",
+          "home": "Titans",
+          "away": "Eagles",
+          "spread": 7,
+          "result": null
+        },
+        {
+          "id": "3fcr88r4mu17punh",
+          "home": "Patriots",
+          "away": "Steelers",
+          "spread": -5.5,
+          "result": null
+        },
+        {
+          "id": "7wynguplmu17punh",
+          "home": "Jets",
+          "away": "Packers",
+          "spread": 4.5,
+          "result": null
+        },
+        {
+          "id": "yxqlyjkgmu17punh",
+          "home": "Buccaneers",
+          "away": "Browns",
+          "spread": -8.5,
+          "result": null
+        },
+        {
+          "id": "11jy9md0mu17punh",
+          "home": "Ravens",
+          "away": "Saints",
+          "spread": -8.5,
+          "result": null
+        },
+        {
+          "id": "i0iykdhtmu17punh",
+          "home": "Texans",
+          "away": "Bengals",
+          "spread": -3,
+          "result": null
+        },
+        {
+          "id": "lq15hravmu17punh",
+          "home": "Broncos",
+          "away": "Jaguars",
+          "spread": -2.5,
+          "result": null
+        },
+        {
+          "id": "25ndbk81mu17punh",
+          "home": "Chargers",
+          "away": "Raiders",
+          "spread": -7,
+          "result": null
+        },
+        {
+          "id": "kvfymctemu17punh",
+          "home": "Cowboys",
+          "away": "Commanders",
+          "spread": -3.5,
+          "result": null
+        },
+        {
+          "id": "qoaksmrkmu17punh",
+          "home": "Cardinals",
+          "away": "Seahawks",
+          "spread": 4.5,
+          "result": null
+        },
+        {
+          "id": "3zhlmb4pmu17punh",
+          "home": "49ers",
+          "away": "Dolphins",
+          "spread": -12.5,
+          "result": null
+        },
+        {
+          "id": "ngm7in1fmu17punh",
+          "home": "Chiefs",
+          "away": "Colts",
+          "spread": -6.5,
+          "result": null
+        },
+        {
+          "id": "xgs82jhemu17punh",
+          "home": "Rams",
+          "away": "Giants",
+          "spread": -7,
+          "result": null
+        }
+      ],
       "finalized": false,
       "locked": false
     }
