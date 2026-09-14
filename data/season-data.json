@@ -173,7 +173,10 @@
           "away": "Broncos",
           "home": "Chiefs",
           "spread": -2.5,
-          "result": null
+          "result": {
+            "away": 1,
+            "home": null
+          }
         }
       ],
       "finalized": true,
