@@ -177,7 +177,7 @@
         }
       ],
       "finalized": true,
-      "locked": false
+      "locked": true
     }
   ],
   "picks": {
