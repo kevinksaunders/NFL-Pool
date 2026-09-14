@@ -141,5 +141,12 @@
       "locked": false
     }
   ],
-  "picks": {}
+  "picks": {
+    "1": {
+      "8l97tf0gmu0lqrx3": {
+        "levelAtPick": 1,
+        "l1Team": "Chargers"
+      }
+    }
+  }
 }
