@@ -181,6 +181,12 @@
       ],
       "finalized": true,
       "locked": true
+    },
+    {
+      "num": 2,
+      "games": [],
+      "finalized": false,
+      "locked": false
     }
   ],
   "picks": {
