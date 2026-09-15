@@ -298,7 +298,7 @@
           "result": null
         }
       ],
-      "finalized": true,
+      "finalized": false,
       "locked": false
     }
   ],
