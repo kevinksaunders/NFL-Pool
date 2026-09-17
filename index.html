@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Ladder</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg:#16241C;
+  --surface:#1F3126;
+  --surface-2:#28402F;
+  --line: rgba(239,235,221,0.14);
+  --chalk:#EFEBDD;
+  --muted:#9FB3A3;
+  --amber:#E7A83D;
+  --brick:#C1453A;
+  --gold:#D4AF37;
+  --steel:#B9C2C7;
+  --bronze:#C97C3B;
+  --rust:#8B4A3B;
+  --radius:6px;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:var(--bg);
+  color:var(--chalk);
+  font-family:'Work Sans', sans-serif;
+  min-height:100vh;
+}
+.wrap{max-width:720px;margin:0 auto;padding:20px 18px 80px;}
+
+/* header */
+.hdr{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:18px;padding-bottom:14px;border-bottom:2px solid var(--chalk);}
+.hdr h1{
+  font-family:'Anton', sans-serif;
+  font-weight:400;
+  font-size:36px;
+  letter-spacing:0.5px;
+  margin:0;
+  line-height:0.9;
+}
+.hdr .tagline{color:var(--muted);font-size:13px;margin-top:4px;}
+.hdr-right{display:flex;gap:8px;align-items:center;}
+.icon-btn{
+  background:none;border:1px solid var(--line);color:var(--chalk);
+  width:32px;height:32px;border-radius:50%;cursor:pointer;font-family:'Anton',sans-serif;font-size:16px;
+  display:flex;align-items:center;justify-content:center;
+}
+.icon-btn:hover{border-color:var(--amber);color:var(--amber);}
+
+/* who am i */
+.whoami{display:flex;align-items:center;gap:8px;margin-bottom:18px;font-size:14px;color:var(--muted);flex-wrap:wrap;}
+select, input[type=text], input[type=number]{
+  background:var(--surface);
+  border:1px solid var(--line);
+  color:var(--chalk);
+  padding:8px 10px;
+  border-radius:var(--radius);
+  font-family:inherit;
+  font-size:14px;
+}
+select:focus, input:focus{outline:2px solid var(--amber);outline-offset:1px;}
+
+/* nav tabs */
+.tabs{display:flex;gap:2px;margin-bottom:20px;border-bottom:1px solid var(--line);}
+.tab{
+  flex:1;text-align:center;padding:10px 6px;cursor:pointer;
+  color:var(--muted);font-size:13px;font-weight:600;
+  border-bottom:3px solid transparent;background:none;border-top:none;border-left:none;border-right:none;
+  font-family:'Work Sans',sans-serif;
+}
+.tab.active{color:var(--chalk);border-bottom-color:var(--amber);}
+.tab:hover{color:var(--chalk);}
+
+section.view{display:none;}
+section.view.active{display:block;}
+
+.card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:16px;
+  margin-bottom:14px;
+}
+.card h3{font-family:'Anton',sans-serif;font-weight:400;letter-spacing:0.3px;font-size:19px;margin:0 0 10px;}
+.muted{color:var(--muted);}
+.small{font-size:12.5px;}
+
+.btn{
+  background:var(--amber);color:#1B2B22;border:none;
+  padding:9px 16px;border-radius:var(--radius);font-weight:700;
+  cursor:pointer;font-size:14px;font-family:inherit;
+}
+.btn:hover{filter:brightness(1.08);}
+.btn.secondary{background:none;border:1px solid var(--line);color:var(--chalk);font-weight:600;}
+.btn.secondary:hover{border-color:var(--amber);color:var(--amber);}
+.btn.danger{background:none;border:1px solid var(--brick);color:var(--brick);font-weight:600;}
+.btn:disabled{opacity:0.4;cursor:not-allowed;}
+
+/* level badge */
+.badge{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:4px 10px;border-radius:100px;font-size:12px;font-weight:700;
+  font-family:'Work Sans',sans-serif;
+}
+.badge .dot{width:9px;height:9px;border-radius:50%;display:inline-block;}
+.badge.l1{background:rgba(212,175,55,0.15);color:var(--gold);}
+.badge.l1 .dot{background:var(--gold);}
+.badge.l2{background:rgba(185,194,199,0.15);color:var(--steel);}
+.badge.l2 .dot{background:var(--steel);}
+.badge.l3{background:rgba(201,124,59,0.15);color:var(--bronze);}
+.badge.l3 .dot{background:var(--bronze);}
+.badge.l4{background:rgba(139,74,59,0.2);color:#d18c78;}
+.badge.l4 .dot{background:var(--rust);}
+
+/* pick rows */
+.game-row{border:1px solid var(--line);border-radius:var(--radius);padding:10px 12px;margin-bottom:8px;}
+.game-row .matchup{font-size:12.5px;color:var(--muted);margin-bottom:8px;}
+.side-btns{display:flex;gap:8px;}
+.side-btn{
+  flex:1;text-align:left;padding:10px;border:1px solid var(--line);border-radius:var(--radius);
+  background:var(--surface-2);color:var(--chalk);cursor:pointer;font-family:inherit;
+}
+.side-btn .team{font-weight:700;font-size:14px;}
+.side-btn .spread{color:var(--muted);font-size:12.5px;}
+.side-btn.selected{border-color:var(--amber);background:rgba(231,168,61,0.12);}
+.side-btn.selected .team{color:var(--amber);}
+
+.team-radio{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:var(--radius);padding:10px 12px;margin-bottom:8px;cursor:pointer;}
+.team-radio.selected{border-color:var(--amber);background:rgba(231,168,61,0.1);}
+.team-radio.used{opacity:0.35;cursor:not-allowed;}
+.team-radio input{accent-color:var(--amber);}
+
+/* ladder */
+.ladder{display:flex;flex-direction:column;gap:10px;}
+.rung{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;}
+.rung-head{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:9px 14px;font-family:'Anton',sans-serif;font-size:15px;letter-spacing:0.3px;
+}
+.rung-head .count{font-family:'Work Sans',sans-serif;font-weight:600;font-size:12px;color:var(--muted);}
+.rung.l1 .rung-head{background:rgba(212,175,55,0.12);color:var(--gold);}
+.rung.l2 .rung-head{background:rgba(185,194,199,0.1);color:var(--steel);}
+.rung.l3 .rung-head{background:rgba(201,124,59,0.12);color:var(--bronze);}
+.rung.l4 .rung-head{background:rgba(139,74,59,0.15);color:#d18c78;}
+.rung-body{padding:8px 14px 12px;}
+.player-line{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--line);font-size:14px;}
+.player-line:last-child{border-bottom:none;}
+.player-line .pts{color:var(--muted);font-size:12.5px;}
+.empty-rung{color:var(--muted);font-size:13px;font-style:italic;padding:4px 0;}
+
+/* history */
+.week-block{margin-bottom:16px;}
+.week-title{font-family:'Anton',sans-serif;font-size:17px;display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+.result-line{display:flex;justify-content:space-between;font-size:13.5px;padding:5px 0;border-bottom:1px solid var(--line);}
+.result-line:last-child{border-bottom:none;}
+.outcome{font-weight:700;font-size:12px;padding:2px 8px;border-radius:100px;}
+.outcome.win{background:rgba(120,190,130,0.15);color:#8fd39d;}
+.outcome.tie{background:rgba(231,168,61,0.15);color:var(--amber);}
+.outcome.loss{background:rgba(193,69,58,0.15);color:#e08579;}
+
+/* manage */
+.field-row{display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap;}
+.field-row input{flex:1;min-width:90px;}
+label.lbl{display:block;font-size:12px;color:var(--muted);margin-bottom:3px;}
+.game-edit{border:1px dashed var(--line);border-radius:var(--radius);padding:10px;margin-bottom:8px;}
+.remove-x{background:none;border:none;color:var(--brick);cursor:pointer;font-size:16px;padding:2px 6px;}
+hr.div{border:none;border-top:1px solid var(--line);margin:16px 0;}
+
+/* modal */
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:50;align-items:center;justify-content:center;padding:20px;}
+.modal-bg.active{display:flex;}
+.modal{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);max-width:520px;max-height:80vh;overflow-y:auto;padding:22px;}
+.modal h2{font-family:'Anton',sans-serif;font-weight:400;margin-top:0;}
+.modal ol,.modal ul{padding-left:20px;font-size:14px;line-height:1.7;}
+.modal li{margin-bottom:6px;}
+
+.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:var(--amber);color:#1B2B22;padding:9px 18px;border-radius:100px;font-weight:700;font-size:13px;z-index:60;display:none;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hdr">
+    <div>
+      <h1 id="poolTitle">The Ladder</h1>
+      <div class="tagline">Survive. Fall. Climb back.</div>
+    </div>
+    <div class="hdr-right">
+      <button class="icon-btn" onclick="openRules()" title="How it works">?</button>
+    </div>
+  </div>
+
+  <div class="whoami">
+    <span>You are:</span>
+    <select id="whoamiSelect" onchange="setMe(this.value)"></select>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="picks" onclick="showTab('picks')">My Picks</button>
+    <button class="tab" data-tab="standings" onclick="showTab('standings')">Standings</button>
+    <button class="tab" data-tab="history" onclick="showTab('history')">History</button>
+    <button class="tab" data-tab="manage" onclick="showTab('manage')">Manage</button>
+  </div>
+
+  <section class="view active" id="view-picks"></section>
+  <section class="view" id="view-standings"></section>
+  <section class="view" id="view-history"></section>
+  <section class="view" id="view-manage"></section>
+</div>
+
+<div class="modal-bg" id="rulesModal">
+  <div class="modal">
+    <h2>How the Ladder works</h2>
+    <p class="small muted">Everyone starts at Level 1. A bad week drops you down the ladder; once you've hit rock bottom, good weeks let you climb back up (capped at Level 2).</p>
+    <ul>
+      <li><b>Level 1 — Survivor.</b> Pick one team to win straight up. Can't reuse a team all season. Win: 1 pt, stay at Level 1. Tie: 0.5 pt, drop to Level 2. Loss: 0 pts, drop to Level 2.</li>
+      <li><b>Level 2 — 1 game ATS.</b> Win: 1 pt, stay. Tie: 0.5 pt, drop to Level 3. Loss: 0 pts, drop to Level 3.</li>
+      <li><b>Level 3 — 2 games ATS.</b> Win both, or win one + tie one: 1 pt, stay (or climb to Level 2 if you've ever hit Level 4). Tie both: 0.5 pt, drop to Level 4. Any loss: 0 pts, drop to Level 4.</li>
+      <li><b>Level 4 — 3 games ATS (parlay style).</b> Any loss: 0 pts, stay. All ties: 0.5 pt, stay. At least one win with no losses: 1 pt, climb to Level 3.</li>
+    </ul>
+    <p class="small muted">Reaching Level 4 activates climbing for the rest of the season — from then on, a winning week at Level 2 or 3 moves you up a level (never higher than Level 2). A missed pick in a finalized week counts as a loss.</p>
+    <button class="btn secondary" onclick="closeRules()">Got it</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const DATA_PATH = 'data/season-data.json';
+let DATA = null;
+let ME = null;
+let CURRENT_SHA = null;
+let currentTab = 'picks';
+let historyOpenWeek = null;
+let manageOpenWeeks = null; // Set of week numbers expanded in the Manage tab; null until first render sets the default
+let draftPicks = {}; // in-memory draft for the current pick session: {gameId: side} or {l1Team: name}
+
+function uid(){ return Math.random().toString(36).slice(2,10) + Date.now().toString(36); }
+
+function defaultData(){
+  return { poolName: 'The Ladder', players: [], weeks: [], picks: {} };
+}
+
+/* ---------- GitHub-backed storage ---------- */
+
+function ghConfig(){
+  return {
+    owner: localStorage.getItem('gh_owner') || '',
+    repo: localStorage.getItem('gh_repo') || '',
+    token: localStorage.getItem('gh_token') || ''
+  };
+}
+
+function ghConfigured(){
+  const c = ghConfig();
+  return !!(c.owner && c.repo && c.token);
+}
+
+function b64EncodeUnicode(str){
+  return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, (m, p) => String.fromCharCode('0x' + p)));
+}
+function b64DecodeUnicode(str){
+  return decodeURIComponent(atob(str).split('').map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)).join(''));
+}
+
+async function ghGetFile(){
+  const { owner, repo, token } = ghConfig();
+  const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${DATA_PATH}`, {
+    headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json' }
+  });
+  if (res.status === 404) return { data: null, sha: null };
+  if (!res.ok) throw new Error('GitHub read failed: ' + res.status);
+  const json = await res.json();
+  const content = b64DecodeUnicode(json.content.replace(/\n/g, ''));
+  return { data: JSON.parse(content), sha: json.sha };
+}
+
+async function ghPutFile(dataObj, sha){
+  const { owner, repo, token } = ghConfig();
+  const body = { message: 'Update pool data', content: b64EncodeUnicode(JSON.stringify(dataObj, null, 2)) };
+  if (sha) body.sha = sha;
+  const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${DATA_PATH}`, {
+    method: 'PUT',
+    headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json' },
+    body: JSON.stringify(body)
+  });
+  if (!res.ok){
+    const errText = await res.text();
+    throw new Error('GitHub write failed: ' + res.status + ' ' + errText);
+  }
+  const json = await res.json();
+  return json.content.sha;
+}
+
+async function connectGitHub(){
+  const owner = document.getElementById('ghOwner').value.trim();
+  const repo = document.getElementById('ghRepo').value.trim();
+  const token = document.getElementById('ghToken').value.trim();
+  if (!owner || !repo || !token){ showToast('Fill in all three fields'); return; }
+  localStorage.setItem('gh_owner', owner);
+  localStorage.setItem('gh_repo', repo);
+  localStorage.setItem('gh_token', token);
+  location.reload();
+}
+
+async function disconnectGitHub(){
+  if (!confirm('Disconnect from GitHub? This only clears the connection on this device — the data in the repo is untouched.')) return;
+  localStorage.removeItem('gh_owner');
+  localStorage.removeItem('gh_repo');
+  localStorage.removeItem('gh_token');
+  location.reload();
+}
+
+function renderConnectScreen(errorMsg){
+  const saved = ghConfig();
+  document.querySelector('.wrap').innerHTML = `
+    <div class="hdr"><div><h1>The Ladder</h1><div class="tagline">Connect to your pool's data</div></div></div>
+    <div class="card">
+      <h3>Connect to GitHub</h3>
+      <div class="small muted" style="margin-bottom:12px;">This device needs your repo details once. The token is stored only in this browser, never uploaded anywhere except directly to GitHub's API.</div>
+      ${errorMsg ? `<div class="small" style="color:var(--brick);margin-bottom:10px;">${escapeHtml(errorMsg)}</div>` : ''}
+      <label class="lbl">GitHub username</label>
+      <input type="text" id="ghOwner" placeholder="kevinksaunders" value="${escapeHtml(saved.owner)}" style="width:100%;margin-bottom:10px;" />
+      <label class="lbl">Repository name</label>
+      <input type="text" id="ghRepo" placeholder="nfl-pool" value="${escapeHtml(saved.repo)}" style="width:100%;margin-bottom:10px;" />
+      <label class="lbl">Personal access token</label>
+      <input type="password" id="ghToken" placeholder="github_pat_..." value="${escapeHtml(saved.token)}" style="width:100%;margin-bottom:14px;" />
+      <button class="btn" onclick="connectGitHub()">Connect</button>
+    </div>`;
+}
+
+async function loadData(){
+  try{
+    const { data, sha } = await ghGetFile();
+    DATA = data || defaultData();
+    CURRENT_SHA = sha;
+    if (!data){
+      // First-ever load for this repo — create the file so future reads/writes have something to work with.
+      CURRENT_SHA = await ghPutFile(DATA, null);
+    }
+  }catch(e){
+    throw e;
+  }
+  ME = localStorage.getItem('my_player_id') || null;
+}
+
+async function saveData(){
+  try{
+    CURRENT_SHA = await ghPutFile(DATA, CURRENT_SHA);
+  }catch(e){
+    // Likely a stale sha (someone else saved in between) — refetch and retry once.
+    try{
+      const { sha } = await ghGetFile();
+      CURRENT_SHA = await ghPutFile(DATA, sha);
+    }catch(e2){
+      showToast('Could not save to GitHub — check your connection');
+    }
+  }
+}
+
+function setMe(id){
+  ME = id || null;
+  localStorage.setItem('my_player_id', ME || '');
+  draftPicks = {};
+  renderAll();
+}
+
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.display = 'block';
+  setTimeout(()=>{ t.style.display='none'; }, 2200);
+}
+
+function openRules(){ document.getElementById('rulesModal').classList.add('active'); }
+function closeRules(){ document.getElementById('rulesModal').classList.remove('active'); }
+
+function showTab(tab){
+  currentTab = tab;
+  document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active', b.dataset.tab===tab));
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  document.getElementById('view-'+tab).classList.add('active');
+  renderAll();
+}
+
+/* ---------- scoring engine ---------- */
+
+function formatSpread(x){
+  if (x === 0) return 'PK';
+  return x > 0 ? ('+' + x) : ('' + x);
+}
+
+function findGame(week, gameId){
+  return week.games.find(g => g.id === gameId);
+}
+
+function coverOutcome(game, side){
+  // game.spread is the home team's spread (e.g. -3.5 = home favored by 3.5)
+  const margin = game.result.home - game.result.away; // positive = home won by this much
+  const coverMargin = margin + Number(game.spread);
+  if (side === 'home'){
+    if (coverMargin > 0) return 'win';
+    if (coverMargin === 0) return 'tie';
+    return 'loss';
+  } else {
+    if (coverMargin < 0) return 'win';
+    if (coverMargin === 0) return 'tie';
+    return 'loss';
+  }
+}
+
+function straightUpOutcome(game, team){
+  if (game.result.home === game.result.away) return 'tie';
+  const winner = game.result.home > game.result.away ? game.home : game.away;
+  return winner === team ? 'win' : 'loss';
+}
+
+// Compute this week's outcome given the level the player held BEFORE this week, their picks, the week, and whether they've ever been activated (climbing enabled)
+function computeOutcome(level, weekPicks, week, everActivated){
+  if (level === 1){
+    const team = weekPicks && weekPicks.l1Team;
+    const game = team ? week.games.find(g => g.home === team || g.away === team) : null;
+    if (!game || !game.result) return { result:'loss', pointsEarned:0, newLevel:2 };
+    const r = straightUpOutcome(game, team);
+    if (r === 'win') return { result:'win', pointsEarned:1, newLevel:1 };
+    if (r === 'tie') return { result:'tie', pointsEarned:0.5, newLevel:2 };
+    return { result:'loss', pointsEarned:0, newLevel:2 };
+  }
+  if (level === 2){
+    const p = weekPicks && weekPicks.atsPicks && weekPicks.atsPicks[0];
+    const game = p ? findGame(week, p.gameId) : null;
+    if (!game || !game.result) return { result:'loss', pointsEarned:0, newLevel:3 };
+    const r = coverOutcome(game, p.side);
+    if (r === 'win') return { result:'win', pointsEarned:1, newLevel:2 };
+    if (r === 'tie') return { result:'tie', pointsEarned:0.5, newLevel:3 };
+    return { result:'loss', pointsEarned:0, newLevel:3 };
+  }
+  if (level === 3){
+    const picks = (weekPicks && weekPicks.atsPicks) || [];
+    if (picks.length < 2) return { result:'loss', pointsEarned:0, newLevel:4 };
+    const results = picks.map(p=>{
+      const game = findGame(week, p.gameId);
+      if (!game || !game.result) return 'loss';
+      return coverOutcome(game, p.side);
+    });
+    const losses = results.filter(r=>r==='loss').length;
+    const ties = results.filter(r=>r==='tie').length;
+    if (losses > 0) return { result:'loss', pointsEarned:0, newLevel:4 };
+    if (ties === 2) return { result:'tie', pointsEarned:0.5, newLevel:4 };
+    return { result:'win', pointsEarned:1, newLevel: everActivated ? 2 : 3 };
+  }
+  // level 4
+  {
+    const picks = (weekPicks && weekPicks.atsPicks) || [];
+    if (picks.length < 3) return { result:'loss', pointsEarned:0, newLevel:4 };
+    const results = picks.map(p=>{
+      const game = findGame(week, p.gameId);
+      if (!game || !game.result) return 'loss';
+      return coverOutcome(game, p.side);
+    });
+    const losses = results.filter(r=>r==='loss').length;
+    const wins = results.filter(r=>r==='win').length;
+    if (losses > 0) return { result:'loss', pointsEarned:0, newLevel:4 };
+    if (wins === 0) return { result:'tie', pointsEarned:0.5, newLevel:4 };
+    return { result:'win', pointsEarned:1, newLevel:3 };
+  }
+}
+
+function worstCase(level){
+  if (level === 1) return { result:'loss', pointsEarned:0, newLevel:2, missed:true };
+  if (level === 2) return { result:'loss', pointsEarned:0, newLevel:3, missed:true };
+  if (level === 3) return { result:'loss', pointsEarned:0, newLevel:4, missed:true };
+  return { result:'loss', pointsEarned:0, newLevel:4, missed:true };
+}
+
+// Replays the whole season from scratch. Returns { [playerId]: {level, points, everActivated, usedTeams, log:[{week,levelAtPick,result,pointsEarned,missed}]} }
+function replaySeason(){
+  const state = {};
+  DATA.players.forEach(p => { state[p.id] = { level:1, points:0, everActivated:false, usedTeams:[], log:[] }; });
+  const weeksSorted = [...DATA.weeks].sort((a,b)=>a.num-b.num);
+  weeksSorted.forEach(week => {
+    if (!week.finalized) return;
+    DATA.players.forEach(p => {
+      const ps = state[p.id];
+      const levelAtPick = ps.level;
+      const weekPicks = (DATA.picks[week.num] || {})[p.id];
+      let outcome;
+      if (!weekPicks || weekPicks.levelAtPick !== levelAtPick){
+        outcome = worstCase(levelAtPick);
+      } else {
+        outcome = computeOutcome(levelAtPick, weekPicks, week, ps.everActivated);
+        if (levelAtPick === 1 && weekPicks.l1Team) ps.usedTeams.push(weekPicks.l1Team);
+      }
+      ps.points += outcome.pointsEarned;
+      ps.level = outcome.newLevel;
+      if (ps.level === 4) ps.everActivated = true;
+      ps.log.push({ week: week.num, levelAtPick, result: outcome.result, pointsEarned: outcome.pointsEarned, missed: !!outcome.missed });
+    });
+  });
+  return state;
+}
+
+/* ---------- rendering ---------- */
+
+function renderAll(){
+  renderWhoami();
+  renderPicks();
+  renderStandings();
+  renderHistory();
+  renderManage();
+  document.getElementById('poolTitle').textContent = DATA.poolName || 'The Ladder';
+}
+
+function renderWhoami(){
+  const sel = document.getElementById('whoamiSelect');
+  const opts = ['<option value="">— select your name —</option>']
+    .concat(DATA.players.map(p => `<option value="${p.id}" ${p.id===ME?'selected':''}>${escapeHtml(p.name)}</option>`));
+  sel.innerHTML = opts.join('');
+  if (ME && !DATA.players.find(p=>p.id===ME)){ ME = null; }
+}
+
+function escapeHtml(s){
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function currentWeek(){
+  const sorted = [...DATA.weeks].sort((a,b)=>a.num-b.num);
+  // current week = first non-finalized week, else the last week
+  return sorted.find(w=>!w.finalized) || sorted[sorted.length-1] || null;
+}
+
+function pickCountForLevel(level){
+  return level===1 ? 1 : (level===2 ? 1 : (level===3 ? 2 : 3));
+}
+
+function renderPicks(){
+  const el = document.getElementById('view-picks');
+  if (!DATA.players.length){
+    el.innerHTML = `<div class="card"><p class="muted">No players yet. Add everyone on the <b>Manage</b> tab first.</p></div>`;
+    return;
+  }
+  if (!ME){
+    el.innerHTML = `<div class="card"><p class="muted">Pick your name up top to submit picks.</p></div>`;
+    return;
+  }
+  const week = currentWeek();
+  if (!week){
+    el.innerHTML = `<div class="card"><p class="muted">No week set up yet. Add one on the <b>Manage</b> tab.</p></div>`;
+    return;
+  }
+  const state = replaySeason();
+  const ps = state[ME];
+  const level = ps.level;
+  const existing = (DATA.picks[week.num] || {})[ME];
+  const locked = week.locked;
+
+  let html = `<div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <h3>Week ${week.num}</h3>
+      <span class="badge l${level}"><span class="dot"></span>Level ${level}</span>
+    </div>
+    <div class="small muted">${ps.points} pt${ps.points===1?'':'s'} so far ${locked ? '&middot; picks are locked for this week' : ''}</div>
+  </div>`;
+
+  if (level === 1){
+    const used = new Set(ps.usedTeams);
+    const teams = [];
+    week.games.forEach(g => { teams.push({team:g.home, opp:g.away, home:true}); teams.push({team:g.away, opp:g.home, home:false}); });
+    const chosen = draftPicks.l1Team || (existing && existing.l1Team) || null;
+    html += `<div class="card"><h3>Pick one team to win</h3><div class="small muted" style="margin-bottom:10px;">Straight up — no spread. You can't reuse a team you've already picked.</div>`;
+    teams.forEach(t => {
+      const isUsed = used.has(t.team) && t.team !== (existing && existing.l1Team);
+      const sel = chosen === t.team;
+      html += `<div class="team-radio ${sel?'selected':''} ${isUsed?'used':''}" ${isUsed?'':`onclick="selectL1('${escAttr(t.team)}')"`}>
+        <input type="radio" ${sel?'checked':''} ${isUsed?'disabled':''} />
+        <div><div style="font-weight:700;">${escapeHtml(t.team)}</div><div class="small muted">${t.home?'vs':'@'} ${escapeHtml(t.opp)}${isUsed?' — already used':''}</div></div>
+      </div>`;
+    });
+    html += `<button class="btn" style="margin-top:8px;" ${locked?'disabled':''} onclick="submitPicks()">Submit pick</button></div>`;
+  } else {
+    const need = pickCountForLevel(level);
+    const draftSel = draftPicks.atsPicks || (existing && existing.atsPicks ? existing.atsPicks.slice() : []);
+    draftPicks.atsPicks = draftSel;
+    html += `<div class="card"><h3>Pick ${need} game${need>1?'s':''} against the spread</h3>
+      <div class="small muted" style="margin-bottom:10px;">Selected ${draftSel.length}/${need}</div>`;
+    week.games.forEach(g => {
+      const homeSel = draftSel.find(p=>p.gameId===g.id && p.side==='home');
+      const awaySel = draftSel.find(p=>p.gameId===g.id && p.side==='away');
+      html += `<div class="game-row">
+        <div class="matchup">${escapeHtml(g.away)} @ ${escapeHtml(g.home)}</div>
+        <div class="side-btns">
+          <div class="side-btn ${awaySel?'selected':''}" onclick="toggleAts('${g.id}','away',${need})">
+            <div class="team">${escapeHtml(g.away)}</div><div class="spread">${formatSpread(-Number(g.spread))}</div>
+          </div>
+          <div class="side-btn ${homeSel?'selected':''}" onclick="toggleAts('${g.id}','home',${need})">
+            <div class="team">${escapeHtml(g.home)}</div><div class="spread">${formatSpread(Number(g.spread))}</div>
+          </div>
+        </div>
+      </div>`;
+    });
+    html += `<button class="btn" style="margin-top:8px;" ${locked || draftSel.length!==need ? 'disabled':''} onclick="submitPicks()">Submit picks</button></div>`;
+  }
+
+  // who's in this week
+  const submitted = DATA.players.filter(p => (DATA.picks[week.num]||{})[p.id]);
+  html += `<div class="card small muted">${submitted.length} of ${DATA.players.length} players have submitted picks this week.</div>`;
+
+  el.innerHTML = html;
+}
+
+function escAttr(s){ return String(s).replace(/'/g, "\\'"); }
+
+function selectL1(team){
+  draftPicks.l1Team = team;
+  renderPicks();
+}
+
+function toggleAts(gameId, side, need){
+  let sel = draftPicks.atsPicks || [];
+  const idx = sel.findIndex(p=>p.gameId===gameId);
+  if (idx >= 0 && sel[idx].side === side){
+    sel.splice(idx,1); // deselect
+  } else if (idx >= 0){
+    sel[idx] = { gameId, side }; // switch side
+  } else {
+    if (sel.length >= need){ showToast(`You can only pick ${need} game${need>1?'s':''}`); return; }
+    sel.push({ gameId, side });
+  }
+  draftPicks.atsPicks = sel;
+  renderPicks();
+}
+
+async function submitPicks(){
+  const week = currentWeek();
+  if (!week || !ME) return;
+  const state = replaySeason();
+  const level = state[ME].level;
+  if (!DATA.picks[week.num]) DATA.picks[week.num] = {};
+  if (level === 1){
+    if (!draftPicks.l1Team){ showToast('Pick a team first'); return; }
+    DATA.picks[week.num][ME] = { levelAtPick: 1, l1Team: draftPicks.l1Team };
+  } else {
+    const need = pickCountForLevel(level);
+    const sel = draftPicks.atsPicks || [];
+    if (sel.length !== need){ showToast(`Pick ${need} game(s) first`); return; }
+    DATA.picks[week.num][ME] = { levelAtPick: level, atsPicks: sel };
+  }
+  draftPicks = {};
+  await saveData();
+  showToast('Picks saved');
+  renderAll();
+}
+
+function renderStandings(){
+  const el = document.getElementById('view-standings');
+  if (!DATA.players.length){
+    el.innerHTML = `<div class="card"><p class="muted">Add players on the Manage tab to see standings.</p></div>`;
+    return;
+  }
+  const state = replaySeason();
+  const groups = {1:[],2:[],3:[],4:[]};
+  DATA.players.forEach(p => groups[state[p.id].level].push({ name:p.name, points: state[p.id].points }));
+  Object.values(groups).forEach(g => g.sort((a,b)=>b.points-a.points));
+  const labels = {1:'Level 1 — Still Alive', 2:'Level 2', 3:'Level 3', 4:'Level 4 — Bottom'};
+  let html = `<div class="ladder">`;
+  [1,2,3,4].forEach(lv => {
+    html += `<div class="rung l${lv}">
+      <div class="rung-head"><span>${labels[lv]}</span><span class="count">${groups[lv].length} player${groups[lv].length===1?'':''}</span></div>
+      <div class="rung-body">`;
+    if (groups[lv].length === 0){
+      html += `<div class="empty-rung">Nobody here</div>`;
+    } else {
+      groups[lv].forEach(pl => {
+        html += `<div class="player-line"><span>${escapeHtml(pl.name)}</span><span class="pts">${pl.points} pt${pl.points===1?'':'s'}</span></div>`;
+      });
+    }
+    html += `</div></div>`;
+  });
+  html += `</div>`;
+  el.innerHTML = html;
+}
+
+function renderHistory(){
+  const el = document.getElementById('view-history');
+  const weeksSorted = [...DATA.weeks].sort((a,b)=>b.num-a.num);
+  if (!weeksSorted.length){
+    el.innerHTML = `<div class="card"><p class="muted">No weeks yet.</p></div>`;
+    return;
+  }
+  const state = replaySeason();
+  // rebuild per-player level-at-pick for display by re-running a light replay that records per-week
+  // (state.log has this already keyed per player)
+  let html = '';
+  weeksSorted.forEach(week => {
+    const open = historyOpenWeek === week.num;
+    html += `<div class="card week-block">
+      <div class="week-title" style="cursor:pointer;" onclick="toggleHistoryWeek(${week.num})">
+        Week ${week.num} ${week.finalized ? '' : '<span class="small muted">(not finalized)</span>'}
+        <span class="small muted" style="margin-left:auto;">${open?'&#9650;':'&#9660;'}</span>
+      </div>`;
+    if (open){
+      html += `<div class="small muted" style="margin-bottom:8px;">Games</div>`;
+      week.games.forEach(g => {
+        const res = g.result ? `${g.result.away}–${g.result.home}` : 'no result yet';
+        html += `<div class="result-line"><span>${escapeHtml(g.away)} @ ${escapeHtml(g.home)} (${formatSpread(Number(g.spread))} home)</span><span>${res}</span></div>`;
+      });
+      html += `<div class="small muted" style="margin:10px 0 6px;">Picks &amp; outcomes</div>`;
+      const allSubmitted = DATA.players.length > 0 && DATA.players.every(p => (DATA.picks[week.num]||{})[p.id]);
+      const revealed = week.finalized || week.locked || allSubmitted;
+      if (!revealed){
+        const submittedCount = DATA.players.filter(p => (DATA.picks[week.num]||{})[p.id]).length;
+        html += `<div class="small muted">Picks are hidden until everyone's in (or the week is locked). ${submittedCount} of ${DATA.players.length} submitted so far.</div>`;
+      } else if (!week.finalized){
+        // Revealed, but not yet scored — show what everyone picked without a result
+        DATA.players.forEach(p => {
+          const wp = (DATA.picks[week.num]||{})[p.id];
+          let desc = 'no pick submitted';
+          if (wp){
+            if (wp.l1Team) desc = wp.l1Team;
+            else if (wp.atsPicks) desc = wp.atsPicks.map(a=>{
+              const g = findGame(week, a.gameId);
+              return g ? (a.side==='home'?g.home:g.away) : '?';
+            }).join(', ');
+          }
+          html += `<div class="result-line"><span>${escapeHtml(p.name)} — ${escapeHtml(desc)} <span class="small muted">(L${wp?wp.levelAtPick:'?'})</span></span><span class="small muted">pending</span></div>`;
+        });
+      } else {
+        DATA.players.forEach(p => {
+          const entry = state[p.id].log.find(l=>l.week===week.num);
+          const wp = (DATA.picks[week.num]||{})[p.id];
+          let desc = 'missed pick';
+          if (wp && entry && !entry.missed){
+            if (wp.l1Team) desc = wp.l1Team;
+            else if (wp.atsPicks) desc = wp.atsPicks.map(a=>{
+              const g = findGame(week, a.gameId);
+              return g ? (a.side==='home'?g.home:g.away) : '?';
+            }).join(', ');
+          }
+          const cls = entry ? entry.result : 'loss';
+          html += `<div class="result-line"><span>${escapeHtml(p.name)} — ${escapeHtml(desc)} <span class="small muted">(L${entry?entry.levelAtPick:'?'})</span></span><span class="outcome ${cls}">${cls} ${entry?('+'+entry.pointsEarned):''}</span></div>`;
+        });
+      }
+    }
+    html += `</div>`;
+  });
+  el.innerHTML = html;
+}
+
+function toggleHistoryWeek(num){
+  historyOpenWeek = historyOpenWeek === num ? null : num;
+  renderHistory();
+}
+
+function toggleManageWeek(num){
+  if (manageOpenWeeks.has(num)) manageOpenWeeks.delete(num);
+  else manageOpenWeeks.add(num);
+  renderManage();
+}
+
+/* ---------- manage ---------- */
+
+function renderManage(){
+  const el = document.getElementById('view-manage');
+  let html = `<div class="card">
+    <h3>Pool name</h3>
+    <div class="field-row">
+      <input type="text" id="poolNameInput" value="${escapeHtml(DATA.poolName||'')}" />
+      <button class="btn secondary" onclick="savePoolName()">Save</button>
+    </div>
+  </div>`;
+
+  html += `<div class="card"><h3>Players</h3>`;
+  DATA.players.forEach(p => {
+    html += `<div class="field-row" style="align-items:center;">
+      <span style="flex:1;">${escapeHtml(p.name)}</span>
+      <button class="remove-x" onclick="removePlayer('${p.id}')">&times;</button>
+    </div>`;
+  });
+  html += `<div class="field-row">
+    <input type="text" id="newPlayerName" placeholder="Player name" />
+    <button class="btn secondary" onclick="addPlayer()">Add player</button>
+  </div></div>`;
+
+  // weeks — most recent first, collapsed by default except the newest
+  const weeksSorted = [...DATA.weeks].sort((a,b)=>b.num-a.num);
+  if (manageOpenWeeks === null){
+    manageOpenWeeks = new Set(weeksSorted.length ? [weeksSorted[0].num] : []);
+  }
+  html += `<div class="card"><h3>Weeks &amp; games</h3>
+    <div class="small muted" style="margin-bottom:10px;">Type in matchups and spreads once, then use "Sync scores from ESPN" per week to fill in final scores automatically — no manual score entry needed once games are done.</div>`;
+  weeksSorted.forEach(week => {
+    const open = manageOpenWeeks.has(week.num);
+    html += `<div class="game-edit">
+      <div class="field-row" style="align-items:center;cursor:pointer;" onclick="toggleManageWeek(${week.num})">
+        <b>Week ${week.num}</b>
+        ${week.finalized ? '<span class="small muted">finalized</span>' : ''}
+        <span style="flex:1;"></span>
+        <span class="small muted">${open?'&#9650;':'&#9660;'}</span>
+      </div>`;
+    if (open){
+      html += `<div class="field-row" style="align-items:center;" onclick="event.stopPropagation()">
+        <span style="flex:1;"></span>
+        <label class="small muted" style="display:flex;align-items:center;gap:4px;">
+          <input type="checkbox" ${week.finalized?'checked':''} onchange="toggleFinalize(${week.num}, this.checked)" /> finalized
+        </label>
+        <label class="small muted" style="display:flex;align-items:center;gap:4px;">
+          <input type="checkbox" ${week.locked?'checked':''} onchange="toggleLock(${week.num}, this.checked)" /> lock picks
+        </label>
+        <button class="remove-x" onclick="removeWeek(${week.num})">&times;</button>
+      </div>`;
+    const gameFieldsLocked = week.locked || week.finalized;
+    week.games.forEach(g => {
+      html += `<div class="field-row">
+        <input type="text" placeholder="Away team" value="${escapeHtml(g.away)}" ${gameFieldsLocked?'disabled':''} onchange="editGame(${week.num},'${g.id}','away',this.value)" />
+        <input type="text" placeholder="Home team" value="${escapeHtml(g.home)}" ${gameFieldsLocked?'disabled':''} onchange="editGame(${week.num},'${g.id}','home',this.value)" />
+        <input type="number" step="0.5" placeholder="Home spread" value="${g.spread!==undefined && g.spread!==null ? g.spread : ''}" style="width:100px;" ${gameFieldsLocked?'disabled':''} onchange="editGame(${week.num},'${g.id}','spread',this.value)" />
+        <input type="number" placeholder="Away score" value="${g.result?g.result.away:''}" style="width:90px;" onchange="editGame(${week.num},'${g.id}','resAway',this.value)" />
+        <input type="number" placeholder="Home score" value="${g.result?g.result.home:''}" style="width:90px;" onchange="editGame(${week.num},'${g.id}','resHome',this.value)" />
+        <button class="remove-x" ${gameFieldsLocked?'disabled':''} onclick="removeGame(${week.num},'${g.id}')">&times;</button>
+      </div>`;
+    });
+    html += `<button class="btn secondary" style="margin-top:4px;" ${gameFieldsLocked?'disabled':''} onclick="addGame(${week.num})">+ Add game</button>
+    ${gameFieldsLocked ? '<div class="small muted" style="margin-top:4px;">Matchups and spreads are locked for this week — uncheck "lock picks" (and "finalized") above to edit them. Scores stay editable either way.</div>' : ''}
+    <div class="field-row" style="margin-top:10px;align-items:center;">
+      <div>
+        <label class="lbl">NFL week #</label>
+        <input type="number" id="espnWeek_${week.num}" value="${week.num}" style="width:80px;" />
+      </div>
+      <div>
+        <label class="lbl">Season year</label>
+        <input type="number" id="espnYear_${week.num}" value="2026" style="width:90px;" />
+      </div>
+      <button class="btn secondary" style="align-self:flex-end;" ${gameFieldsLocked?'disabled':''} onclick="loadMatchups(${week.num})">Load matchups from ESPN</button>
+      <button class="btn secondary" style="align-self:flex-end;" onclick="syncScores(${week.num})">Sync scores from ESPN</button>
+    </div>
+    <div class="small muted" style="margin-top:4px;">"Load matchups" fills in the games and spreads for an empty week. "Sync scores" fills in final scores for games already listed. Unofficial ESPN feed — spot-check before locking in results, and enter manually if something doesn't line up.</div>
+    `;
+    }
+    html += `</div>`;
+  });
+  html += `<div class="field-row"><button class="btn" onclick="addWeek()">+ Add new week</button>
+  </div></div>`;
+
+  const gh = ghConfig();
+  html += `<div class="card"><h3>Data storage</h3>
+    <div class="small muted">Connected to <b>${escapeHtml(gh.owner)}/${escapeHtml(gh.repo)}</b> on GitHub. Everyone using this site reads and writes the same file there.</div>
+    <button class="btn secondary" style="margin-top:10px;" onclick="disconnectGitHub()">Disconnect this device</button>
+  </div>`;
+
+  html += `<div class="card"><h3>Danger zone</h3>
+    <button class="btn danger" onclick="resetAll()">Reset all season data</button>
+  </div>`;
+
+  el.innerHTML = html;
+}
+
+async function savePoolName(){
+  DATA.poolName = document.getElementById('poolNameInput').value || 'The Ladder';
+  await saveData();
+  renderAll();
+}
+
+async function addPlayer(){
+  const input = document.getElementById('newPlayerName');
+  const name = input.value.trim();
+  if (!name) return;
+  DATA.players.push({ id: uid(), name });
+  await saveData();
+  renderAll();
+}
+
+async function removePlayer(id){
+  if (!confirm('Remove this player? Their pick history will remain but they will drop out of standings.')) return;
+  DATA.players = DATA.players.filter(p=>p.id!==id);
+  await saveData();
+  renderAll();
+}
+
+async function addWeek(){
+  const nums = DATA.weeks.map(w=>w.num);
+  const num = nums.length ? Math.max(...nums)+1 : 1;
+  DATA.weeks.push({ num, games: [], finalized:false, locked:false });
+  if (manageOpenWeeks) manageOpenWeeks.add(num);
+  await saveData();
+  renderAll();
+}
+
+async function removeWeek(num){
+  if (!confirm(`Remove Week ${num} entirely?`)) return;
+  DATA.weeks = DATA.weeks.filter(w=>w.num!==num);
+  delete DATA.picks[num];
+  await saveData();
+  renderAll();
+}
+
+async function addGame(weekNum){
+  const week = DATA.weeks.find(w=>w.num===weekNum);
+  week.games.push({ id: uid(), away:'', home:'', spread:0, result:null });
+  await saveData();
+  renderAll();
+}
+
+async function removeGame(weekNum, gameId){
+  const week = DATA.weeks.find(w=>w.num===weekNum);
+  week.games = week.games.filter(g=>g.id!==gameId);
+  await saveData();
+  renderAll();
+}
+
+async function editGame(weekNum, gameId, field, value){
+  const week = DATA.weeks.find(w=>w.num===weekNum);
+  const game = week.games.find(g=>g.id===gameId);
+  if (field === 'away') game.away = value;
+  else if (field === 'home') game.home = value;
+  else if (field === 'spread') game.spread = value === '' ? 0 : Number(value);
+  else if (field === 'resAway' || field === 'resHome'){
+    if (!game.result) game.result = { away:null, home:null };
+    if (field==='resAway') game.result.away = value===''?null:Number(value);
+    if (field==='resHome') game.result.home = value===''?null:Number(value);
+    if (game.result.away===null && game.result.home===null) game.result = null;
+  }
+  await saveData();
+}
+
+function normTeam(s){ return String(s||'').toLowerCase().trim(); }
+
+async function fetchEspnWeek(year, wk){
+  const url = `https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=${year}&seasontype=2&week=${wk}`;
+  try{
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('bad response ' + res.status);
+    return await res.json();
+  }catch(e){
+    // Fall back to a public CORS proxy in case the browser blocks the direct request.
+    const proxied = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(url);
+    const res2 = await fetch(proxied);
+    if (!res2.ok) throw new Error('bad response ' + res2.status);
+    return await res2.json();
+  }
+}
+
+async function loadMatchups(weekNum){
+  const week = DATA.weeks.find(w => w.num === weekNum);
+  if (week.locked || week.finalized){ showToast('Unlock this week before loading matchups'); return; }
+  if (week.games.length && !confirm('This replaces the games currently listed for this week with what ESPN returns. Continue?')) return;
+  const yearEl = document.getElementById('espnYear_' + weekNum);
+  const wkEl = document.getElementById('espnWeek_' + weekNum);
+  const year = (yearEl && yearEl.value) || 2026;
+  const wk = (wkEl && wkEl.value) || weekNum;
+  showToast('Fetching matchups from ESPN…');
+  let data;
+  try{
+    data = await fetchEspnWeek(year, wk);
+  }catch(e){
+    showToast('Could not reach ESPN: ' + e.message);
+    return;
+  }
+  const events = data.events || [];
+  if (!events.length){ showToast('ESPN returned no games for that week/year'); return; }
+  week.games = events.map(ev => {
+    const comp = ev.competitions[0];
+    const home = comp.competitors.find(c => c.homeAway === 'home');
+    const away = comp.competitors.find(c => c.homeAway === 'away');
+    const oddsBlock = comp.odds && comp.odds[0];
+    const spread = (oddsBlock && typeof oddsBlock.spread === 'number') ? oddsBlock.spread : 0;
+    const completed = comp.status && comp.status.type && comp.status.type.completed;
+    const result = completed ? { home: Number(home.score), away: Number(away.score) } : null;
+    return {
+      id: uid(),
+      home: (home.team && (home.team.shortDisplayName || home.team.displayName)) || 'Home',
+      away: (away.team && (away.team.shortDisplayName || away.team.displayName)) || 'Away',
+      spread, result
+    };
+  });
+  await saveData();
+  renderAll();
+  showToast(`Loaded ${week.games.length} game${week.games.length===1?'':'s'} from ESPN`);
+}
+
+async function syncScores(weekNum){
+  const week = DATA.weeks.find(w => w.num === weekNum);
+  const yearEl = document.getElementById('espnYear_' + weekNum);
+  const wkEl = document.getElementById('espnWeek_' + weekNum);
+  const year = (yearEl && yearEl.value) || 2026;
+  const wk = (wkEl && wkEl.value) || weekNum;
+  showToast('Fetching scores from ESPN…');
+  let data;
+  try{
+    data = await fetchEspnWeek(year, wk);
+  }catch(e){
+    showToast('Could not reach ESPN: ' + e.message);
+    return;
+  }
+  const events = data.events || [];
+  let updated = 0;
+  let unmatched = [];
+  week.games.forEach(g => {
+    const match = events.find(ev => {
+      const comp = ev.competitions[0];
+      const home = comp.competitors.find(c => c.homeAway === 'home');
+      const away = comp.competitors.find(c => c.homeAway === 'away');
+      const hn = normTeam((home.team && (home.team.shortDisplayName || home.team.displayName)) || '');
+      const an = normTeam((away.team && (away.team.shortDisplayName || away.team.displayName)) || '');
+      const gh = normTeam(g.home), ga = normTeam(g.away);
+      return (hn.includes(gh) || gh.includes(hn)) && (an.includes(ga) || ga.includes(an));
+    });
+    if (!match){ unmatched.push(g.home + ' / ' + g.away); return; }
+    const comp = match.competitions[0];
+    const completed = comp.status && comp.status.type && comp.status.type.completed;
+    if (completed){
+      const home = comp.competitors.find(c => c.homeAway === 'home');
+      const away = comp.competitors.find(c => c.homeAway === 'away');
+      g.result = { home: Number(home.score), away: Number(away.score) };
+      updated++;
+    }
+  });
+  await saveData();
+  renderAll();
+  if (updated === 0 && unmatched.length === week.games.length){
+    showToast('Could not match any games — check the NFL week #/year, or team-name spelling');
+  } else {
+    const allDone = week.games.every(g => g.result);
+    let msg = `Updated ${updated} game${updated===1?'':'s'}`;
+    if (unmatched.length) msg += `, ${unmatched.length} unmatched`;
+    if (allDone) msg += ' — all final, ready to finalize the week';
+    showToast(msg);
+  }
+}
+
+async function toggleFinalize(weekNum, val){
+  const week = DATA.weeks.find(w=>w.num===weekNum);
+  if (val){
+    const missing = week.games.some(g=>!g.result || g.result.away===null || g.result.home===null);
+    if (missing && !confirm('Some games in this week are missing final scores. Finalize anyway? (missing games will count as a loss for anyone who picked them)')) {
+      renderManage();
+      return;
+    }
+  }
+  week.finalized = val;
+  await saveData();
+  renderAll();
+}
+
+async function toggleLock(weekNum, val){
+  const week = DATA.weeks.find(w=>w.num===weekNum);
+  week.locked = val;
+  await saveData();
+  renderAll();
+}
+
+async function resetAll(){
+  if (!confirm('This wipes every player, week, and pick for everyone in the pool. Are you sure?')) return;
+  if (!confirm('Really sure? This cannot be undone.')) return;
+  DATA = defaultData();
+  await saveData();
+  renderAll();
+}
+
+/* ---------- boot ---------- */
+async function boot(){
+  if (!ghConfigured()){
+    renderConnectScreen();
+    return;
+  }
+  try{
+    await loadData();
+  }catch(e){
+    renderConnectScreen('Could not load from that repo — double check the username, repo name, and token, then try again. (' + e.message + ')');
+    return;
+  }
+  try{
+    renderAll();
+  }catch(e){
+    document.querySelector('.wrap').innerHTML = `
+      <div class="hdr"><div><h1>The Ladder</h1><div class="tagline">Something glitched while displaying the pool</div></div></div>
+      <div class="card">
+        <div class="small" style="color:var(--brick);margin-bottom:10px;">The data loaded fine from GitHub, but the app hit a bug while rendering it: ${escapeHtml(e.message)}</div>
+        <div class="small muted">This is a bug in the app, not a connection problem — your data is safe on GitHub. Send this message to Claude to get it fixed.</div>
+      </div>`;
+  }
+}
+boot();
+</script>
+</body>
+</html>
