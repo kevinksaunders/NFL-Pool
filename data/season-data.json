@@ -340,7 +340,10 @@
           "home": "Rams",
           "away": "Giants",
           "spread": -7,
-          "result": null
+          "result": {
+            "home": 28,
+            "away": 6
+          }
         }
       ],
       "finalized": false,
