@@ -348,6 +348,12 @@
       ],
       "finalized": true,
       "locked": true
+    },
+    {
+      "num": 3,
+      "games": [],
+      "finalized": false,
+      "locked": false
     }
   ],
   "picks": {
