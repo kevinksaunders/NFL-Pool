@@ -511,6 +511,19 @@
       "4rpxddlymu0lqnlj": {
         "levelAtPick": 1,
         "l1Team": "Chiefs"
+      },
+      "8l97tf0gmu0lqrx3": {
+        "levelAtPick": 3,
+        "atsPicks": [
+          {
+            "gameId": "33eehukgmufhp027",
+            "side": "home"
+          },
+          {
+            "gameId": "rqfyhy45mufhp027",
+            "side": "away"
+          }
+        ]
       }
     }
   }
