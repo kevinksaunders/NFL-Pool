@@ -466,7 +466,7 @@
         }
       ],
       "finalized": false,
-      "locked": false
+      "locked": true
     }
   ],
   "picks": {
