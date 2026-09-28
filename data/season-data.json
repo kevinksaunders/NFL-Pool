@@ -357,105 +357,150 @@
           "home": "Packers",
           "away": "Falcons",
           "spread": -4.5,
-          "result": null
+          "result": {
+            "home": 14,
+            "away": 35
+          }
         },
         {
           "id": "m67fjqe5mufhp027",
           "home": "Bills",
           "away": "Chargers",
           "spread": -7,
-          "result": null
+          "result": {
+            "home": 24,
+            "away": 16
+          }
         },
         {
           "id": "rqfyhy45mufhp027",
           "home": "Browns",
           "away": "Panthers",
           "spread": 2.5,
-          "result": null
+          "result": {
+            "home": 21,
+            "away": 18
+          }
         },
         {
           "id": "33eehukgmufhp027",
           "home": "Lions",
           "away": "Jets",
           "spread": -6.5,
-          "result": null
+          "result": {
+            "home": 31,
+            "away": 24
+          }
         },
         {
           "id": "1ga1kpdamufhp027",
           "home": "Colts",
           "away": "Texans",
           "spread": 2.5,
-          "result": null
+          "result": {
+            "home": 19,
+            "away": 17
+          }
         },
         {
           "id": "gvpra0ijmufhp027",
           "home": "Dolphins",
           "away": "Chiefs",
           "spread": 10.5,
-          "result": null
+          "result": {
+            "home": 10,
+            "away": 24
+          }
         },
         {
           "id": "kugc91ynmufhp027",
           "home": "Giants",
           "away": "Titans",
           "spread": -3,
-          "result": null
+          "result": {
+            "home": 12,
+            "away": 7
+          }
         },
         {
           "id": "2oje478fmufhp027",
           "home": "Steelers",
           "away": "Bengals",
           "spread": 3.5,
-          "result": null
+          "result": {
+            "home": 30,
+            "away": 27
+          }
         },
         {
           "id": "wa7nj9wjmufhp027",
           "home": "Commanders",
           "away": "Seahawks",
           "spread": 7,
-          "result": null
+          "result": {
+            "home": 33,
+            "away": 31
+          }
         },
         {
           "id": "s0zdnarrmufhp027",
           "home": "Jaguars",
           "away": "Patriots",
           "spread": -3,
-          "result": null
+          "result": {
+            "home": 35,
+            "away": 6
+          }
         },
         {
           "id": "ed60xxzamufhp027",
           "home": "49ers",
           "away": "Cardinals",
           "spread": -8.5,
-          "result": null
+          "result": {
+            "home": 36,
+            "away": 30
+          }
         },
         {
           "id": "llpheacbmufhp027",
           "home": "Buccaneers",
           "away": "Vikings",
           "spread": 1.5,
-          "result": null
+          "result": {
+            "home": 16,
+            "away": 23
+          }
         },
         {
           "id": "020uwablmufhp027",
           "home": "Cowboys",
           "away": "Ravens",
           "spread": 3.5,
-          "result": null
+          "result": {
+            "home": 31,
+            "away": 34
+          }
         },
         {
           "id": "eljzi0smmufhp027",
           "home": "Saints",
           "away": "Raiders",
           "spread": -3,
-          "result": null
+          "result": {
+            "home": 27,
+            "away": 35
+          }
         },
         {
           "id": "pq5oga2zmufhp027",
           "home": "Broncos",
           "away": "Rams",
           "spread": 2.5,
-          "result": null
+          "result": {
+            "home": 30,
+            "away": 26
+          }
         },
         {
           "id": "pyfxt92ymufhp027",
@@ -466,7 +511,7 @@
         }
       ],
       "finalized": false,
-      "locked": true
+      "locked": false
     }
   ],
   "picks": {
@@ -511,19 +556,6 @@
       "4rpxddlymu0lqnlj": {
         "levelAtPick": 1,
         "l1Team": "Chiefs"
-      },
-      "8l97tf0gmu0lqrx3": {
-        "levelAtPick": 3,
-        "atsPicks": [
-          {
-            "gameId": "33eehukgmufhp027",
-            "side": "home"
-          },
-          {
-            "gameId": "rqfyhy45mufhp027",
-            "side": "away"
-          }
-        ]
       }
     }
   }
