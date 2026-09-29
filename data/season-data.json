@@ -515,6 +515,12 @@
       ],
       "finalized": true,
       "locked": true
+    },
+    {
+      "num": 4,
+      "games": [],
+      "finalized": false,
+      "locked": false
     }
   ],
   "picks": {
