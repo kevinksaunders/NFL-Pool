@@ -507,7 +507,10 @@
           "home": "Bears",
           "away": "Eagles",
           "spread": 4.5,
-          "result": null
+          "result": {
+            "home": 27,
+            "away": 7
+          }
         }
       ],
       "finalized": false,
