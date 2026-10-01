@@ -679,6 +679,25 @@
         "levelAtPick": 1,
         "l1Team": "Chiefs"
       }
+    },
+    "4": {
+      "8l97tf0gmu0lqrx3": {
+        "levelAtPick": 4,
+        "atsPicks": [
+          {
+            "gameId": "lac0rce4muptj9ik",
+            "side": "home"
+          },
+          {
+            "gameId": "dfwaevehmuptj9ik",
+            "side": "home"
+          },
+          {
+            "gameId": "m0viit0dmuptj9ik",
+            "side": "home"
+          }
+        ]
+      }
     }
   }
 }
