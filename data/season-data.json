@@ -674,7 +674,10 @@
           "home": "Saints",
           "away": "Falcons",
           "spread": -2.5,
-          "result": null
+          "result": {
+            "home": 24,
+            "away": 45
+          }
         }
       ],
       "finalized": false,
