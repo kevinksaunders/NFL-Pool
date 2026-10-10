@@ -878,6 +878,19 @@
       "4rpxddlymu0lqnlj": {
         "levelAtPick": 1,
         "l1Team": "Bengals"
+      },
+      "8l97tf0gmu0lqrx3": {
+        "levelAtPick": 3,
+        "atsPicks": [
+          {
+            "gameId": "gvp29pkbmv2dc0zp",
+            "side": "away"
+          },
+          {
+            "gameId": "jjeegbutmv2dc0zp",
+            "side": "away"
+          }
+        ]
       }
     }
   }
