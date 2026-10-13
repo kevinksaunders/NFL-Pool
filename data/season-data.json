@@ -797,6 +797,12 @@
       ],
       "finalized": false,
       "locked": true
+    },
+    {
+      "num": 6,
+      "games": [],
+      "finalized": false,
+      "locked": false
     }
   ],
   "picks": {
