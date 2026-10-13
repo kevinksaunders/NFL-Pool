@@ -795,7 +795,7 @@
           "result": null
         }
       ],
-      "finalized": false,
+      "finalized": true,
       "locked": true
     },
     {
