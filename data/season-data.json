@@ -1048,13 +1048,8 @@
     },
     "6": {
       "4rpxddlymu0lqnlj": {
-        "levelAtPick": 2,
-        "atsPicks": [
-          {
-            "gameId": "s9eewy9jmv7bch32",
-            "side": "home"
-          }
-        ]
+        "levelAtPick": 1,
+        "l1Team": "Patriots"
       },
       "dv9foma8mu0lqi05": {
         "levelAtPick": 2,
