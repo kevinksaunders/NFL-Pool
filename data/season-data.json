@@ -965,6 +965,13 @@
       "games": [],
       "finalized": false,
       "locked": false
+    },
+    {
+      "num": 8,
+      "games": [],
+      "finalized": false,
+      "locked": false,
+      "spreadsLocked": false
     }
   ],
   "picks": {
