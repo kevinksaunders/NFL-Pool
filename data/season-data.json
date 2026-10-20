@@ -848,7 +848,10 @@
           "home": "Broncos",
           "away": "Seahawks",
           "spread": 2.5,
-          "result": null,
+          "result": {
+            "home": 17,
+            "away": 14
+          },
           "spreadLocked": true
         },
         {
@@ -856,7 +859,10 @@
           "home": "Jaguars",
           "away": "Texans",
           "spread": -2.5,
-          "result": null,
+          "result": {
+            "home": 31,
+            "away": 34
+          },
           "spreadLocked": true
         },
         {
@@ -864,7 +870,10 @@
           "home": "Falcons",
           "away": "Bears",
           "spread": 1.5,
-          "result": null,
+          "result": {
+            "home": 23,
+            "away": 31
+          },
           "spreadLocked": true
         },
         {
@@ -872,7 +881,10 @@
           "home": "Browns",
           "away": "Ravens",
           "spread": 5.5,
-          "result": null,
+          "result": {
+            "home": 13,
+            "away": 10
+          },
           "spreadLocked": true
         },
         {
@@ -880,7 +892,10 @@
           "home": "Colts",
           "away": "Titans",
           "spread": -7,
-          "result": null,
+          "result": {
+            "home": 20,
+            "away": 26
+          },
           "spreadLocked": true
         },
         {
@@ -888,7 +903,10 @@
           "home": "Patriots",
           "away": "Jets",
           "spread": -7.5,
-          "result": null,
+          "result": {
+            "home": 26,
+            "away": 19
+          },
           "spreadLocked": true
         },
         {
@@ -896,7 +914,10 @@
           "home": "Giants",
           "away": "Saints",
           "spread": 1.5,
-          "result": null,
+          "result": {
+            "home": 27,
+            "away": 34
+          },
           "spreadLocked": true
         },
         {
@@ -904,7 +925,10 @@
           "home": "Eagles",
           "away": "Panthers",
           "spread": 1.5,
-          "result": null,
+          "result": {
+            "home": 14,
+            "away": 25
+          },
           "spreadLocked": true
         },
         {
@@ -912,7 +936,10 @@
           "home": "Buccaneers",
           "away": "Steelers",
           "spread": 2.5,
-          "result": null,
+          "result": {
+            "home": 19,
+            "away": 26
+          },
           "spreadLocked": true
         },
         {
@@ -920,7 +947,10 @@
           "home": "Rams",
           "away": "Cardinals",
           "spread": -12.5,
-          "result": null,
+          "result": {
+            "home": 16,
+            "away": 18
+          },
           "spreadLocked": true
         },
         {
@@ -928,7 +958,10 @@
           "home": "Chiefs",
           "away": "Chargers",
           "spread": -8.5,
-          "result": null,
+          "result": {
+            "home": 22,
+            "away": 6
+          },
           "spreadLocked": true
         },
         {
@@ -936,7 +969,10 @@
           "home": "Raiders",
           "away": "Bills",
           "spread": 5.5,
-          "result": null,
+          "result": {
+            "home": 30,
+            "away": 33
+          },
           "spreadLocked": true
         },
         {
@@ -944,7 +980,10 @@
           "home": "Packers",
           "away": "Cowboys",
           "spread": -1.5,
-          "result": null,
+          "result": {
+            "home": 23,
+            "away": 13
+          },
           "spreadLocked": true
         },
         {
@@ -952,7 +991,10 @@
           "home": "49ers",
           "away": "Commanders",
           "spread": -7.5,
-          "result": null,
+          "result": {
+            "home": 23,
+            "away": 17
+          },
           "spreadLocked": true
         }
       ],
