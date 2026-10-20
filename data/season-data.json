@@ -998,7 +998,7 @@
           "spreadLocked": true
         }
       ],
-      "finalized": false,
+      "finalized": true,
       "locked": true,
       "spreadsLocked": true
     },
