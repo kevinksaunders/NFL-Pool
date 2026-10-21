@@ -1232,6 +1232,21 @@
           }
         ]
       }
+    },
+    "7": {
+      "dv9foma8mu0lqi05": {
+        "levelAtPick": 3,
+        "atsPicks": [
+          {
+            "gameId": "xy08udhkmvgmfy1f",
+            "side": "away"
+          },
+          {
+            "gameId": "u6ldkfftmvgmfy1f",
+            "side": "away"
+          }
+        ]
+      }
     }
   },
   "commentary": true
