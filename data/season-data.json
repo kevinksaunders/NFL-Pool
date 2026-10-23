@@ -1265,6 +1265,19 @@
       "4rpxddlymu0lqnlj": {
         "levelAtPick": 1,
         "l1Team": "Texans"
+      },
+      "8l97tf0gmu0lqrx3": {
+        "levelAtPick": 3,
+        "atsPicks": [
+          {
+            "gameId": "o10opt0nmvgmfy1f",
+            "side": "away"
+          },
+          {
+            "gameId": "es81lfgzmvgmfy1f",
+            "side": "home"
+          }
+        ]
       }
     }
   },
