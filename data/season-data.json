@@ -1420,6 +1420,17 @@
           }
         ]
       }
+    },
+    "8": {
+      "4rpxddlymu0lqnlj": {
+        "levelAtPick": 2,
+        "atsPicks": [
+          {
+            "gameId": "uds7ide7mvqmwg8j",
+            "side": "home"
+          }
+        ]
+      }
     }
   },
   "commentary": true
