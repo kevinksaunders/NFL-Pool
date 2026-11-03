@@ -1325,6 +1325,13 @@
       "finalized": true,
       "locked": false,
       "spreadsLocked": true
+    },
+    {
+      "num": 9,
+      "games": [],
+      "finalized": false,
+      "locked": false,
+      "spreadsLocked": false
     }
   ],
   "picks": {
