@@ -1648,6 +1648,15 @@
             "side": "away"
           }
         ]
+      },
+      "4rpxddlymu0lqnlj": {
+        "levelAtPick": 2,
+        "atsPicks": [
+          {
+            "gameId": "4uflaf5imw0z40ev",
+            "side": "away"
+          }
+        ]
       }
     }
   },
