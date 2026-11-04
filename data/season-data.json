@@ -1630,6 +1630,25 @@
           }
         ]
       }
+    },
+    "9": {
+      "dv9foma8mu0lqi05": {
+        "levelAtPick": 4,
+        "atsPicks": [
+          {
+            "gameId": "w15e48klmw0z40ev",
+            "side": "away"
+          },
+          {
+            "gameId": "9wmufahxmw0z40ev",
+            "side": "away"
+          },
+          {
+            "gameId": "so0ixzntmw0z40ev",
+            "side": "away"
+          }
+        ]
+      }
     }
   },
   "commentary": true
