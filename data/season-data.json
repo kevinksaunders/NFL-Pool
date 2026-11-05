@@ -1334,110 +1334,125 @@
           "home": "Ravens",
           "away": "Jaguars",
           "spread": 10,
-          "result": null
+          "result": null,
+          "spreadLocked": true
         },
         {
           "id": "w15e48klmw0z40ev",
           "home": "Falcons",
           "away": "Bengals",
           "spread": 3,
-          "result": null
+          "result": null,
+          "spreadLocked": true
         },
         {
           "id": "0v391vldmw0z40ev",
           "home": "Colts",
           "away": "Cowboys",
           "spread": 5.5,
-          "result": null
+          "result": null,
+          "spreadLocked": true
         },
         {
           "id": "islmvwlmmw0z40ev",
           "home": "Chiefs",
           "away": "Jets",
           "spread": -10,
-          "result": null
+          "result": null,
+          "spreadLocked": true
         },
         {
           "id": "hf8k9z5imw0z40ev",
           "home": "Dolphins",
           "away": "Lions",
           "spread": 7,
-          "result": null
+          "result": null,
+          "spreadLocked": true
         },
         {
           "id": "mle69lvhmw0z40ev",
           "home": "Saints",
           "away": "Browns",
           "spread": -3,
-          "result": null
+          "result": null,
+          "spreadLocked": true
         },
         {
           "id": "9wmufahxmw0z40ev",
           "home": "Eagles",
           "away": "Giants",
           "spread": 3.5,
-          "result": null
+          "result": null,
+          "spreadLocked": true
         },
         {
           "id": "1tef7stxmw0z40ev",
           "home": "Commanders",
           "away": "Rams",
           "spread": 4.5,
-          "result": null
+          "result": null,
+          "spreadLocked": true
         },
         {
           "id": "4uflaf5imw0z40ev",
           "home": "Panthers",
           "away": "Broncos",
           "spread": 2.5,
-          "result": null
+          "result": null,
+          "spreadLocked": true
         },
         {
           "id": "6eqo0bl2mw0z40ev",
           "home": "Chargers",
           "away": "Texans",
           "spread": 4.5,
-          "result": null
+          "result": null,
+          "spreadLocked": true
         },
         {
           "id": "l9lbvnpimw0z40ev",
           "home": "Patriots",
           "away": "Packers",
           "spread": -3,
-          "result": null
+          "result": null,
+          "spreadLocked": true
         },
         {
           "id": "ryg551simw0z40ev",
           "home": "49ers",
           "away": "Raiders",
           "spread": -10,
-          "result": null
+          "result": null,
+          "spreadLocked": true
         },
         {
           "id": "9cfyvdb9mw0z40ev",
           "home": "Seahawks",
           "away": "Cardinals",
           "spread": -8.5,
-          "result": null
+          "result": null,
+          "spreadLocked": true
         },
         {
           "id": "kludi4e0mw0z40ev",
           "home": "Bears",
           "away": "Buccaneers",
           "spread": -6,
-          "result": null
+          "result": null,
+          "spreadLocked": true
         },
         {
           "id": "so0ixzntmw0z40ev",
           "home": "Vikings",
           "away": "Bills",
           "spread": 3.5,
-          "result": null
+          "result": null,
+          "spreadLocked": true
         }
       ],
       "finalized": false,
       "locked": false,
-      "spreadsLocked": false
+      "spreadsLocked": true
     }
   ],
   "picks": {
