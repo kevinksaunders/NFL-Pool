@@ -1460,6 +1460,13 @@
       "finalized": true,
       "locked": false,
       "spreadsLocked": false
+    },
+    {
+      "num": 11,
+      "games": [],
+      "finalized": false,
+      "locked": false,
+      "spreadsLocked": false
     }
   ],
   "picks": {
