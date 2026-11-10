@@ -1618,6 +1618,13 @@
       "finalized": false,
       "locked": false,
       "spreadsLocked": false
+    },
+    {
+      "num": 13,
+      "games": [],
+      "finalized": false,
+      "locked": false,
+      "spreadsLocked": false
     }
   ],
   "picks": {
