@@ -1862,6 +1862,17 @@
           }
         ]
       }
+    },
+    "10": {
+      "4rpxddlymu0lqnlj": {
+        "levelAtPick": 2,
+        "atsPicks": [
+          {
+            "gameId": "93bv146qmwakoldm",
+            "side": "home"
+          }
+        ]
+      }
     }
   },
   "commentary": true
