@@ -1457,7 +1457,7 @@
     {
       "num": 10,
       "games": [],
-      "finalized": false,
+      "finalized": true,
       "locked": false,
       "spreadsLocked": false
     }
