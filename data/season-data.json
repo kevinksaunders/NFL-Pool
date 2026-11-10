@@ -1450,7 +1450,7 @@
           "spreadLocked": true
         }
       ],
-      "finalized": false,
+      "finalized": true,
       "locked": false,
       "spreadsLocked": true
     },
