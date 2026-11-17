@@ -2051,6 +2051,21 @@
           }
         ]
       }
+    },
+    "11": {
+      "4rpxddlymu0lqnlj": {
+        "levelAtPick": 3,
+        "atsPicks": [
+          {
+            "gameId": "dx4c83dymwkmrxp2",
+            "side": "away"
+          },
+          {
+            "gameId": "a2m44xggmwkmrxp2",
+            "side": "away"
+          }
+        ]
+      }
     }
   },
   "commentary": true
