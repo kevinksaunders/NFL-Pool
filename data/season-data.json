@@ -1622,7 +1622,7 @@
     {
       "num": 11,
       "games": [],
-      "finalized": false,
+      "finalized": true,
       "locked": false,
       "spreadsLocked": false
     },
