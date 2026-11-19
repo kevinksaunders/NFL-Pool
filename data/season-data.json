@@ -2087,6 +2087,23 @@
             "side": "away"
           }
         ]
+      },
+      "8l97tf0gmu0lqrx3": {
+        "levelAtPick": 4,
+        "atsPicks": [
+          {
+            "gameId": "zkb7wol7mwkmrxp2",
+            "side": "home"
+          },
+          {
+            "gameId": "u1sktuw2mwkmrxp2",
+            "side": "home"
+          },
+          {
+            "gameId": "uc428fiimwkmrxp2",
+            "side": "home"
+          }
+        ]
       }
     }
   },
