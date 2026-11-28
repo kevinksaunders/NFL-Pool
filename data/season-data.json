@@ -2280,11 +2280,11 @@
         "levelAtPick": 3,
         "atsPicks": [
           {
-            "gameId": "5d4apuh8mwu6y96c",
-            "side": "home"
+            "gameId": "xu6e9lmkmwu6y96c",
+            "side": "away"
           },
           {
-            "gameId": "xu6e9lmkmwu6y96c",
+            "gameId": "8jahdoa2mwu6y96c",
             "side": "away"
           }
         ]
